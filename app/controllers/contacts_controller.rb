@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
-  def create_contact
-    Contacts::CreateService.call(contact_emailx)
+  def create
+    Contacts::CreateService.call(email: contact_email)
   end
 
   private
