@@ -21,8 +21,8 @@ module Contacts
       auth = {:username => ENV['CRM_USERNAME'], :password => ENV['CRM_API_KEY']}
 
       @request ||= HTTParty.post(CRM__CONTACTS_ENDPOINT, 
-                      basic_auth:auth, body: request_body.to_json,
-                      options: { headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json'} })
+                      basic_auth:auth, body: request_body,
+                      headers: { 'Content-Type' => 'application/json' })
       end
 
     def request_body
@@ -34,7 +34,7 @@ module Contacts
             value: @email
           }
         ]
-      }
+      }.to_json
     end
   end
 end
