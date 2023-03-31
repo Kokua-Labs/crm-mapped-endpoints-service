@@ -1,15 +1,13 @@
 module AgileCrm
   module Contacts
     class CreateService < AgileCrm::Client
+    include AgileCrm::GetEndpoint
+
       def call
         create_contact
       end
       
         private
-
-        def endpoint
-          "#{@crm_api_endpoint}/contacts"
-        end
 
         def create_contact
           @request ||= HTTParty.post(endpoint, 
