@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: proc { [404, {}, ["Not found"]] }
   
-  get '/contacts', to: 'contacts#index'
+  post '/contacts', to: 'contacts#create'
 end
