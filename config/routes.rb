@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: proc { [404, {}, ["Not found"]] }
-  
-  post '/contacts', to: 'contacts#create'
+
+  namespace 'landing' do
+    post '/forms', to: 'forms#data'
+  end
 end
