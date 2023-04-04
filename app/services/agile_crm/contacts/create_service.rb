@@ -9,13 +9,13 @@ module AgileCrm
       
         private
 
-        def create_contact
-          @request ||= HTTParty.post(endpoint, 
-            basic_auth:basic_auth, body: request_body,
-            headers: { 'Content-Type' => 'application/json' })
-        end
+      def create_contact
+        @request ||= HTTParty.post(endpoint, 
+          basic_auth:basic_auth, body: request_body,
+          headers: { 'Content-Type' => 'application/json' })
+      end
 
-        def request_body
+      def request_body
         {
           properties: [
             {
@@ -25,7 +25,7 @@ module AgileCrm
             }
           ]
         }.to_json
-        end
+      end
     end
   end
 end
