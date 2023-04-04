@@ -6,5 +6,11 @@ module AgileCrm
     validates :email, uniqueness: true
     validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/,
       message: "Formato no válido" }
+
+    class << self
+      def already_exists?(email)
+        AgileCrm::Contact.pluck(:email).include?(email)
+      end
+    end
   end
 end
