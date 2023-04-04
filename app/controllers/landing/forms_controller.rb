@@ -4,6 +4,7 @@ class Landing::FormsController < ApplicationController
   VALID_PARAMS = ['first_name', 'contact_email', 'last_name', 'comment', 'requested_service', 'rid']
 
   def data
+    binding.pry
     # Here the params are built dynamically, and we will pass only those that are accepted
     # And permitted.
     # Workflow.call(permitted_params)
