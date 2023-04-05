@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_040251) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_05_051037) do
 # Could not dump table "agile_crm_contacts" because of following StandardError
 #   Unknown type 'sring' for column 'email'
 

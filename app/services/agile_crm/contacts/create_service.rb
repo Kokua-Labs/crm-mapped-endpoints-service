@@ -1,16 +1,23 @@
 module AgileCrm
   module Contacts
     class CreateService < AgileCrm::Client
-    include AgileCrm::GetEndpoint
+      include AgileCrm::GetEndpoint
 
       def call
-        create_contact
+        res = create_contact
+
+        if res.success?
+          AgileCrm::Contact.create!(
+            email: @options[:email],
+            crm_contact_id: res.parsed_response['id']
+          )
+        end
       end
       
         private
 
       def create_contact
-        @request ||= HTTParty.post(endpoint, 
+        @create_contact ||= HTTParty.post(endpoint, 
           basic_auth:basic_auth, body: request_body,
           headers: { 'Content-Type' => 'application/json' })
       end
