@@ -9,7 +9,8 @@ module AgileCrm
 
       def call
         return if @options.empty? || contact_email.nil?
-        AgileCrm::Opportunities::Create.call(xxxx) && return if contact_exists?
+
+        AgileCrm::Opportunities::Create.call(options) && return if contact_exists?
 
         AgileCrm::Contacts::CreateService.call(@options)
       end
@@ -23,7 +24,6 @@ module AgileCrm
       def contact_exists?
         AgileCrm::Contact.already_exists?(contact_email)
       end
-
     end
   end
 end
