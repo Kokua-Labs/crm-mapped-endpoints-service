@@ -22,4 +22,10 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: mysql
+  url: <%= ENV.fetch("MYSQL_URL") %>
+  host: <%= ENV.fetch("MYSQLHOST") %>
+  port: <%= ENV.fetch("MYSQLPORT") %>
+  username: <%= ENV.fetch("MYSQLUSER") %>
+  password: <%= ENV.fetch("MYSQLPASSWORD") %>
+  database: <%= ENV.fetch("MYSQLDATABASE") %>
