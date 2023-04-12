@@ -4,7 +4,6 @@ module AgileCrm
       include AgileCrm::GetEndpoint
 
       def call
-        binding.pry
         res = create_contact
 
         if res.success?
