@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: proc { [404, {}, ["Not found"]] }
 
-  namespace 'landing' do
-    post '/forms', to: 'forms#data'
+  scope constraints: lambda { |req| req.host != ENV['HOST_ALLOWED'] } do
+    namespace 'landing' do
+      post '/forms', to: 'forms#data'
+    end
   end
 end
