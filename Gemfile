@@ -12,6 +12,7 @@ gem 'pry', '~> 0.13.1', groups: [:development, :test]
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 gem 'httparty'
+gem 'rack-cors'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
